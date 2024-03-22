@@ -69,7 +69,10 @@ public class Application {
         System.out.println(edao.findByTitle("doni"));
 
         //RICERCA ELEMENTI ATTUALMENTE IN PRESTITO DATO UN NUMERO DI TESSERA UTENTI
-//        System.out.println(pdao.inPrestitoDataLaTessera(123456));
+        System.out.println(pdao.inPrestitoDataLaTessera(123456));
+
+        //RICERCA DI TUTTI I PRESTITI SCADUTI E NON ANCORA RESTITUITI
+        System.out.println(pdao.prestitiScaduti(LocalDate.now()));
 
 
 
