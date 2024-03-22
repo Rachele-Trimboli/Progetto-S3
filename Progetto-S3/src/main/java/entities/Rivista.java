@@ -7,13 +7,14 @@ import java.time.LocalDate;
 @Entity
 public class Rivista extends ElementoEditoriale{
 
+
     private Periodicità periodicità;
 
     public Rivista() {
     }
 
-    public Rivista(long ISBN, String titolo, int annoPubblicazione, int pagine, Periodicità periodicità) {
-        super(ISBN, titolo, annoPubblicazione, pagine);
+    public Rivista(String titolo, int annoPubblicazione, int pagine, Periodicità periodicità) {
+        super(titolo, annoPubblicazione, pagine);
         this.periodicità = periodicità;
     }
 

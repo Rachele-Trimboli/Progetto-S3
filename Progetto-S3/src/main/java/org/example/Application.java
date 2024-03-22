@@ -1,6 +1,7 @@
 package org.example;
 
 import dao.ElementoEditorialeDAO;
+import entities.ElementoEditoriale;
 import entities.Libro;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
@@ -16,8 +17,16 @@ public class Application {
         EntityManager em = emf.createEntityManager();
         ElementoEditorialeDAO edao = new ElementoEditorialeDAO(em);
 
-        Libro libro1 = new Libro(19,"Una notte d'estate", 2004,150,"Peppino","Commedia");
+        Libro libro1 = new Libro("Una notte d'estate", 2004,150,"Peppino","Commedia");
+        Libro libro2 = new Libro("Harry Potter", 2004,150,"JKR","Fantasy");
+
         edao.save(libro1);
+        edao.save(libro2);
+
+
+
+//        edao.findByIsbn(1);
+
 
         em.close();
         emf.close();

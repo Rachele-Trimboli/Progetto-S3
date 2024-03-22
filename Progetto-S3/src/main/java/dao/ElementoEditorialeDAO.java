@@ -24,4 +24,19 @@ public class ElementoEditorialeDAO {
         }
     }
 
+    public void findByIsbn(long ISBN){
+        try {
+            EntityTransaction t = em.getTransaction();
+            ElementoEditoriale found = em.find(ElementoEditoriale.class, ISBN);
+            if (found != null) {
+                t.begin();
+                em.remove(found);
+                t.commit();
+                System.out.println("Elemento eliminato");
+            } else System.out.println("Elemento non trovato");
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
 }

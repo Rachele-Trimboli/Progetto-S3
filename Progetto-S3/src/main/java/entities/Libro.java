@@ -13,8 +13,8 @@ public class Libro extends ElementoEditoriale {
     public Libro() {
     }
 
-    public Libro(long ISBN, String titolo, int annoPubblicazione, int pagine, String autore, String genere) {
-        super(ISBN, titolo, annoPubblicazione, pagine);
+    public Libro(String titolo, int annoPubblicazione, int pagine, String autore, String genere) {
+        super(titolo, annoPubblicazione, pagine);
         this.autore = autore;
         this.genere = genere;
     }

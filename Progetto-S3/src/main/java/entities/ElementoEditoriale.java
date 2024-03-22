@@ -20,8 +20,7 @@ public abstract class ElementoEditoriale {
     public ElementoEditoriale() {
     }
 
-    public ElementoEditoriale(long ISBN, String titolo, int annoPubblicazione, int pagine) {
-        this.ISBN = ISBN;
+    public ElementoEditoriale(String titolo, int annoPubblicazione, int pagine) {
         this.titolo = titolo;
         this.annoPubblicazione = annoPubblicazione;
         this.pagine = pagine;

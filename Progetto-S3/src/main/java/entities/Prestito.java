@@ -1,18 +1,20 @@
 package entities;
 
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.*;
 
 import java.time.LocalDate;
-
+@Entity
 public class Prestito {
+
+    @Id
+    @GeneratedValue
+    private long id;
 
     @ManyToOne
     @JoinColumn(name = "utente")
     private Utente utente;
 
-    @OneToOne(mappedBy = "prestito")
+    @OneToOne
     private ElementoEditoriale elementoprestato;
 
     private LocalDate inizioprestito;
@@ -26,7 +28,7 @@ public class Prestito {
         this.utente = utente;
         this.elementoprestato = elementoprestato;
         this.inizioprestito = inizioprestito;
-        this.restituzioneprevista = restituzioneprevista;
+        this.restituzioneprevista = restituzionePrevista();
         this.datarestituzioneeffettiva = datarestituzioneeffettiva;
     }
 
@@ -58,8 +60,10 @@ public class Prestito {
         return restituzioneprevista;
     }
 
-    public void setRestituzioneprevista(LocalDate restituzioneprevista) {
-        this.restituzioneprevista = restituzioneprevista;
+    public LocalDate restituzionePrevista(){
+        LocalDate inizioprestito = this.inizioprestito;
+        LocalDate prevista = inizioprestito.plusDays(30);
+        return prevista;
     }
 
     public LocalDate getDatarestituzioneeffettiva() {
