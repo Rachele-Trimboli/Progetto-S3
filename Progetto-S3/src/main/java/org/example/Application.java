@@ -23,7 +23,7 @@ public class Application {
 
         Libro libro1 = new Libro("Una notte d'estate", 2004,150,"Peppino","Commedia");
         Libro libro2 = new Libro("Harry Potter", 2004,150,"JKR","Fantasy");
-        Libro libro3 = new Libro("I doni della morte", 2001,350,"JKR", "Fantasy");
+        Libro libro3 = new Libro("I doni della morte", 2000,350,"JKR", "Fantasy");
 
         Rivista r1=new Rivista("Cosmopolita",2012,10, Periodicità.SETTIMANALE);
         Rivista r2=new Rivista("Today",2000,15, Periodicità.MENSILE);
@@ -46,7 +46,15 @@ public class Application {
 
         System.out.println(edao.findByISBN(154));
 
+        //RICERCA PER ANNO
 
+        System.out.println(edao.findByYear(2000));
+
+        //RICERCA PER AUTORE
+
+        System.out.println(edao.findByAutor("JKR"));
+
+        //RICERCA PER TITOLO O PARTE DI ESSO
 
 
 
