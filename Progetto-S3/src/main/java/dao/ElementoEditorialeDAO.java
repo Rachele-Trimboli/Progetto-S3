@@ -1,6 +1,8 @@
 package dao;
 
 import entities.ElementoEditoriale;
+import entities.Libro;
+import entities.Rivista;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
 
@@ -24,7 +26,7 @@ public class ElementoEditorialeDAO {
         }
     }
 
-    public void findByIsbn(long ISBN){
+    public void findByIsbnAndDelete(long ISBN){
         try {
             EntityTransaction t = em.getTransaction();
             ElementoEditoriale found = em.find(ElementoEditoriale.class, ISBN);
@@ -38,5 +40,11 @@ public class ElementoEditorialeDAO {
             System.out.println(e.getMessage());
         }
     }
+
+    public ElementoEditoriale findByISBN(long ISBN){
+        ElementoEditoriale elemento = em.find(ElementoEditoriale.class, ISBN);
+        return elemento;
+    }
+
 
 }
