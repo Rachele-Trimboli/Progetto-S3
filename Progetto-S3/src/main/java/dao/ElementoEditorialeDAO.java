@@ -61,6 +61,12 @@ public class ElementoEditorialeDAO {
         return query.getResultList();
     }
 
+    public List<ElementoEditoriale> findByTitle(String titolo){
+        TypedQuery<ElementoEditoriale> query = em.createQuery("SELECT e FROM ElementoEditoriale e WHERE e.titolo LIKE :titolo", ElementoEditoriale.class);
+        query.setParameter("titolo", "%" + titolo + "%");
+        return query.getResultList();
+    }
+
 
 
 

@@ -55,6 +55,7 @@ public class Application {
         System.out.println(edao.findByAutor("JKR"));
 
         //RICERCA PER TITOLO O PARTE DI ESSO
+        System.out.println(edao.findByTitle("doni"));
 
 
 
