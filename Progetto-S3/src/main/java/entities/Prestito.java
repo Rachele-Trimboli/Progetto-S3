@@ -24,7 +24,7 @@ public class Prestito {
     public Prestito() {
     }
 
-    public Prestito(Utente utente, ElementoEditoriale elementoprestato, LocalDate inizioprestito, LocalDate restituzioneprevista, LocalDate datarestituzioneeffettiva) {
+    public Prestito(Utente utente, ElementoEditoriale elementoprestato, LocalDate inizioprestito, LocalDate datarestituzioneeffettiva) {
         this.utente = utente;
         this.elementoprestato = elementoprestato;
         this.inizioprestito = inizioprestito;

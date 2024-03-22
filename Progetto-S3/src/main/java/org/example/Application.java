@@ -1,14 +1,14 @@
 package org.example;
 
 import dao.ElementoEditorialeDAO;
-import entities.ElementoEditoriale;
-import entities.Libro;
-import entities.Periodicità;
-import entities.Rivista;
+import dao.PrestitoDAO;
+import dao.UtenteDAO;
+import entities.*;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 
+import java.time.LocalDate;
 
 
 public class Application {
@@ -18,6 +18,9 @@ public class Application {
     public static void main(String[] args) {
         EntityManager em = emf.createEntityManager();
         ElementoEditorialeDAO edao = new ElementoEditorialeDAO(em);
+        UtenteDAO udao = new UtenteDAO(em);
+        PrestitoDAO pdao = new PrestitoDAO(em);
+
 
         //CREAZIONE LIBRI E RIVISTE
 
@@ -38,6 +41,14 @@ public class Application {
 //        edao.save(r2);
 //        edao.save(r3);
 
+        //REGISTRA UN NUOVO PRESTITO
+        Utente utente1 = new Utente("Mario", "Bros",1980,123456);
+        udao.save(utente1);
+
+        Prestito prestito1 = new Prestito(utente1,libro1, LocalDate.of(2024,3,10),LocalDate.of(2024,3,22));
+        pdao.save(prestito1);
+
+
         //TROVA ELEMENTI NEL CATALOGO ED ELIMINALI PER ISBN
 
         edao.findByIsbnAndDelete(1);
@@ -56,6 +67,9 @@ public class Application {
 
         //RICERCA PER TITOLO O PARTE DI ESSO
         System.out.println(edao.findByTitle("doni"));
+
+        //RICERCA ELEMENTI ATTUALMENTE IN PRESTITO DATO UN NUMERO DI TESSERA UTENTI
+//        System.out.println(pdao.inPrestitoDataLaTessera(123456));
 
 
 

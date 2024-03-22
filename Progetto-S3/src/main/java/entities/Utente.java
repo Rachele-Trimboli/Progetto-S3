@@ -1,8 +1,5 @@
 package entities;
-
 import jakarta.persistence.*;
-
-import java.time.LocalDate;
 import java.util.List;
 
 @Entity
@@ -15,7 +12,7 @@ public class Utente {
     private String nome;
     private String cognome;
     @Column(name = "annodinascita")
-    private LocalDate annoDiNascita;
+    private int annoDiNascita;
     @Column(name = "numeroditessera")
     private int numeroditessera;
 
@@ -25,7 +22,7 @@ public class Utente {
     public Utente() {
     }
 
-    public Utente(String nome, String cognome, LocalDate annoDiNascita, int numeroditessera) {
+    public Utente(String nome, String cognome, int annoDiNascita, int numeroditessera) {
         this.nome = nome;
         this.cognome = cognome;
         this.annoDiNascita = annoDiNascita;
@@ -52,11 +49,11 @@ public class Utente {
         this.cognome = cognome;
     }
 
-    public LocalDate getAnnoDiNascita() {
+    public int getAnnoDiNascita() {
         return annoDiNascita;
     }
 
-    public void setAnnoDiNascita(LocalDate annoDiNascita) {
+    public void setAnnoDiNascita(int annoDiNascita) {
         this.annoDiNascita = annoDiNascita;
     }
 
